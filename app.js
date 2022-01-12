@@ -1,5 +1,6 @@
 const addForm = document.querySelector(".add");
 const taskList = document.querySelector(".todos");
+const search = document.querySelector(".search input");
 
 // add task
 const generateTemp = (todo) => {
@@ -30,4 +31,19 @@ taskList.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete")) {
     e.target.parentElement.remove();
   }
+});
+
+const filterTodo = (term) => {
+  Array.from(taskList.children)
+    .filter((todo) => !todo.textContent.includes(term))
+    .forEach((todo) => todo.classList.add("filtered"));
+
+  Array.from(taskList.children)
+    .filter((todo) => todo.textContent.includes(term))
+    .forEach((todo) => todo.classList.remove("filtered"));
+};
+// search and filter
+search.addEventListener("keyup", () => {
+  const term = search.value.trim();
+  filterTodo(term);
 });
