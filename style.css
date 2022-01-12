@@ -1,0 +1,29 @@
+body {
+  background-color: crimson;
+}
+
+.container {
+  max-width: 400px;
+}
+
+input[type="text"],
+input[type="text"]:focus {
+  color: #fff;
+  border: none !important;
+  background-color: rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  outline: none !important;
+}
+input[type="text"]::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(255, 255, 255);
+  opacity: 0.3; /* Firefox */
+}
+
+.todos li {
+  background-color: brown;
+}
+
+.delete {
+    cursor: pointer;
+}
