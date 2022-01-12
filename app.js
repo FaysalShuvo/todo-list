@@ -35,8 +35,8 @@ taskList.addEventListener("click", (e) => {
 
 const filterTodo = (term) => {
   Array.from(taskList.children)
-    .filter((todo) => !todo.textContent.includes(term))
-    .forEach((todo) => todo.classList.add("filtered"));
+    .filter((todo) => !todo.textContent.toLowerCase().includes(term))
+    .forEach((todo) => todo.classList.toLowerCase().add("filtered"));
 
   Array.from(taskList.children)
     .filter((todo) => todo.textContent.includes(term))
@@ -44,6 +44,6 @@ const filterTodo = (term) => {
 };
 // search and filter
 search.addEventListener("keyup", () => {
-  const term = search.value.trim();
+  const term = search.value.trim().toLowerCase();
   filterTodo(term);
 });
