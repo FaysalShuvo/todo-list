@@ -1,6 +1,7 @@
 const addForm = document.querySelector(".add");
 const taskList = document.querySelector(".todos");
 
+// add task
 const generateTemp = (todo) => {
   const html = `
         <li
@@ -17,6 +18,16 @@ const generateTemp = (todo) => {
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const todo = addForm.add.value.trim();
-  generateTemp(todo);
-  addForm.add.value = "";
+
+  if (todo.length) {
+    generateTemp(todo);
+    addForm.reset();
+  }
+});
+
+// delete
+taskList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete")) {
+    e.target.parentElement.remove();
+  }
 });
